@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.toast {
+    padding: .75rem;
+    margin: 1rem;
+    background: #fff;
+    border-radius: 0.25rem;
+    border: 1px solid #333;
+    position: relative;
+    cursor: pointer;
+
+}
+
+.toast::after {
+    content: "\00D7";
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.toast-container {
+    position: fixed;
+    width: 250px;
+
+    margin: 10px;
+}
+
+/* .toast-container[data-position="top-right"] {
+    top: 0;
+    right: 0;
+}
+
+.toast-container[data-position="top-left"] {
+    top: 0;
+    left: 0;
+}
+
+.toast-container[data-position="bottom-right"] {
+    bottom: 0;
+    right: 0;
+}
+
+.toast-container[data-position="bottom-left"] {
+    bottom: 0;
+    left: 0;
+} */
+.toast-container[data-position^="top"] {
+    top: 0;
+}
+
+.toast-container[data-position^="bottom"] {
+    bottom: 0;
+}
+
+.toast-container[data-position$="-left"] {
+    left: 0;
+}
+
+.toast-container[data-position$="-right"] {
+
+    right: 0;
+}
+
+.toast-container[data-position$="-center"] {
+    left: 50%;
+    transform: translateX(-50%);
+}
