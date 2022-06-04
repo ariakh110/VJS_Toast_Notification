@@ -1,10 +1,10 @@
 import Toast from "./Toast.js";
-
-const toast = new Toast({
-  position: "top-right",
-  text: "Hi",
-  autoClose: false,
+document.querySelector("button").addEventListener("click", () => {
+  const toast = new Toast({
+    text: "Hi",
+    autoClose: 3000,
+    position: "top-right",
+    pauseOnHover: true,
+    pauseOnFocusLoss: true,
+  });
 });
-setTimeout(() => {
-  toast.remove();
-}, 3000);

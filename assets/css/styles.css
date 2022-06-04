@@ -12,10 +12,49 @@
     border: 1px solid #333;
     position: relative;
     cursor: pointer;
-
+    -webkit-box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.6);
+    transform: translateX(110%);
+    transition: transform 0.25s ease-in-out;
+    overflow: hidden;
 }
 
-.toast::after {
+.toast-container[data-position$="-right"] .toast {
+    transform: translateX(110%);
+}
+
+.toast-container[data-position$="-left"] .toast {
+    transform: translateX(-110%);
+}
+
+.toast-container[data-position="top-center"] .toast {
+    transform: translateY(-100vh);
+}
+
+.toast-container[data-position="bottom-center"] .toast {
+    transform: translateY(100vh);
+}
+
+.toast-container .toast.show {
+    transform: translate(0, 0);
+}
+
+.toast.progress::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: calc(100% * var(--progress));
+    height: .3rem;
+    background: rgb(107, 6, 84);
+    border-radius: 0.25rem;
+    z-index: -1;
+    opacity: 0.5;
+    transition: opacity 0.25s ease-in-out;
+}
+
+.toast.can-close::after {
     content: "\00D7";
     position: absolute;
     top: 2px;
